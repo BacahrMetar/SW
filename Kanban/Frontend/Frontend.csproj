@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>IntroSE.Kanban.Frontend</AssemblyName>
+    <RootNamespace>IntroSE.Kanban.Frontend</RootNamespace>
+    <StartupObject>Frontend.App</StartupObject>
+	  <RootNamespace>IntroSE.Kanban.Frontend</RootNamespace>
+	  <AssemblyName>IntroSE.Kanban.Frontend</AssemblyName>
+	  <BaseOutputPath></BaseOutputPath>
+	  <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+	  <PackageId>IntroSE.Kanban.Frontend</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <None Remove="Resources\back_button.png" />
+
+    <None Remove="Resources\enter_board_icon.png" />
+    <None Remove="Resources\login_icon.png" />
+    <None Remove="Resources\logout_icon.png" />
+    <None Remove="Resources\register_icon.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="View\MainWindow.xaml.cs">
+			<SubType>Code</SubType>
+			<DependentUpon>MainWindow.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\back_button.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\enter_board_icon.png">
+
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\login_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\logout_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\register_icon.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,51 @@
+﻿<Window x:Class="IntroSE.Kanban.Frontend.View.BoardsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="BoardsWindow" Height="450" Width="800">
+    <Grid>
+        <Button HorizontalAlignment="Left" FontSize="20" Height="40" Margin="658,17,0,0" VerticalAlignment="Top" Width="110" Click="Logout_Click">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Logout"  Grid.Column="0" Grid.Row="0" FontSize="20" VerticalAlignment="Center" Margin="0,0,0,5"></TextBlock>
+                <Image Source="/Resources/logout_icon.png" Grid.Column="1" Grid.Row="0"/>
+            </Grid>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="My Boards" FontSize="30"  FontWeight="Bold" VerticalAlignment="Top" Width="160" Height="40"/>
+        <Grid HorizontalAlignment="Center" Height="285" Margin="0,67,0,0" VerticalAlignment="Top" Width="680">
+            <Label Content="{Binding Path=Title, Mode=OneTime}" HorizontalAlignment="Center"/>
+            <ListBox ItemsSource="{Binding Path=User.Boards}" SelectedItem="{Binding Path=SelectedBoard, Mode=TwoWay}" MouseDoubleClick="Enter_Board" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <StackPanel Orientation="Vertical" Height="30">
+                                <TextBlock Text="{Binding}" FontSize="20"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Button HorizontalAlignment="Left" FontSize="20" Margin="595,360,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="Enter_Board">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Enter Board"  Grid.Column="0" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0,0,0,5"></TextBlock>
+                <Image Source="/Resources/enter_board_icon.png" Grid.Column="1" Grid.Row="0"/>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>
